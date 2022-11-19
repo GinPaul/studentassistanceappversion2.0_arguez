@@ -27,11 +27,11 @@ class LoginPageStudentAppV2 : AppCompatActivity() {
         val correctUserName: String = "admin"
         val correctPassword: String = "admin123"
 
-        val correctUserName2: String = "Paul_A."
+        val correctUserName2: String = "Paul"
         val correctPassword2: String = "pass123"
 
         if((correctUserName == userName) && (correctPassword == password)){
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AdminPage::class.java)
             intent.putExtra("nameID", userName)
             startActivity(intent)
             finish()
