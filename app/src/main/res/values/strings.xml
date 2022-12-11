@@ -38,6 +38,10 @@
     <string name="menu_teacher_schedule">Teachers Schedule</string>
     <string name="menu_studentschedule">Students Schedule</string>
     <string name="menu_activities_announcements">Activities and Announcements</string>
+    <string name="title_activity_subject_details">SubjectDetails</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 
 </resources>

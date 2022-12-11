@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -33,7 +34,7 @@ class StudentAppHomeScreenV2 : AppCompatActivity() {
     lateinit var date: String
     lateinit var textView: TextView
     lateinit var button: Button
-//    lateinit var adapter: SubjectAdapter
+    lateinit var adapter: SubjectAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,34 @@ class StudentAppHomeScreenV2 : AppCompatActivity() {
         binding = ActivityStudentAppHomeScreenV2Binding.inflate(layoutInflater)
 
         setContentView(binding.root)
+
+        /**Recylerview of subjects*/
+        //data source using data Class, need to create a Subject data class
+
+        var subjectList: MutableList<Subjects> = mutableListOf<Subjects>(
+            Subjects(R.drawable.flaskchemistry, 1, "Chemistry 17", "Introduction to Inorganic Chemistry"),
+            Subjects(R.drawable.maths, 2, "Math 11", "Advanced Mathematics"),
+            Subjects(R.drawable.atomphysics, 3, "Physics 21", "Applied Physics"),
+            Subjects(R.drawable.philosophy, 4, "Philosophy 100", "Introduction to Philosophy"),
+            Subjects(R.drawable.biologygene, 5, "Biology 2", "General Biology"),
+        )
+
+        //pass data source to adapter (need lateinit var adapter). Need to create Subject Adapter
+        adapter = SubjectAdapter(subjectList)
+        adapter.onItemClick = {
+            Toast.makeText(applicationContext, it.subjectName, Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, SubjectDetails::class.java)
+            intent.putExtra("subjectName", it.subjectName)
+            intent.putExtra("subjectDescription", it.subjectDescription)
+            intent.putExtra("imageSubject", it.imageSubject)
+            intent.putExtra("subjectNumber", it.subjectNumber)
+            startActivity(intent) //>>don't place "finish" so that the can go back the product list
+
+        }
+
+        binding.cvSubjectsRecylcer.adapter = adapter
+        binding.cvSubjectsRecylcer.layoutManager = LinearLayoutManager(this)
 
         /**Calendar*/
         binding.imgCalendarButton.setOnClickListener() {
@@ -50,7 +79,7 @@ class StudentAppHomeScreenV2 : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //showing current date and time
+        /**showing current date and time*/
         textView = binding.tvDateToday
         calendar = Calendar.getInstance()
         simpleDateFormat = SimpleDateFormat("EEE | MMM dd, yyyy")
