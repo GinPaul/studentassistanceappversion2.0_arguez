@@ -3,8 +3,10 @@ package com.kodego.app.studentassistaneappv20
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import com.kodego.app.studentassistaneappv20.databinding.ActivitySubjectDetailsBinding
 
 class SubjectDetails : AppCompatActivity() {
@@ -17,6 +19,11 @@ class SubjectDetails : AppCompatActivity() {
     private lateinit var btnNotes: ImageButton
     private lateinit var btnAnnouncement: ImageButton
     private lateinit var btnSyllabus: ImageButton
+
+    private lateinit var manger: FragmentTransaction
+    private val fragmentManger = supportFragmentManager
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,4 +53,5 @@ class SubjectDetails : AppCompatActivity() {
         }
 
     }
+
 }
