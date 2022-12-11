@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.Toast
 import com.kodego.app.studentassistaneappv20.databinding.ActivitySubjectDetailsBinding
 
 class SubjectDetails : AppCompatActivity() {
@@ -31,9 +32,18 @@ class SubjectDetails : AppCompatActivity() {
         var imageSubject: Int = intent.getIntExtra("imageSubject",0)
 ////        var quantity: Int = intent.getIntExtra("quantity",0)
 
-        //passing data to fragment 1 (subject frag)
+        //passing data to subject details
         var bundleSubjectDetails = Bundle()
         bundleSubjectDetails.putString("subjectName", subjectName)
+
+
+        //transferring to Assignments
+        binding.assignments.setOnClickListener() {
+            Toast.makeText(applicationContext, "Showing Assignments...", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, Assignments::class.java)
+            startActivity(intent)
+        }
 
     }
 }

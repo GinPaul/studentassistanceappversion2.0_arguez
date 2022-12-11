@@ -1,7 +1,5 @@
 package com.kodego.app.studentassistaneappv20
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

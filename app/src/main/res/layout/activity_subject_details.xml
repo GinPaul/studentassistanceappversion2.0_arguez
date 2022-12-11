@@ -9,6 +9,43 @@
     android:orientation="vertical"
     tools:context=".SubjectDetails">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="145dp"
+        android:text="Subject Details"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/subjectName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="163dp"
+        android:hint="Subject Name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="16sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
